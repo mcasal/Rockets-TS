@@ -1,8 +1,8 @@
 // es declara una variable de tipo class creada a rocket.js
 let rocket: Rocket;
 const arrRockets = [];
-const rocket1 = new Rocket('32WESSDS', 3);
-const rocket2 = new Rocket('LDSFJA32', 6);
+const rocket1 = new Rocket('32WESSDS', [10, 30, 80]);
+const rocket2 = new Rocket('LDSFJA32', [30, 40, 50, 50, 30, 10]);
 
 arrRockets.push(rocket1);
 arrRockets.push(rocket2);

@@ -2,8 +2,8 @@
 // es declara una variable de tipo class creada a rocket.js
 var rocket;
 var arrRockets = [];
-var rocket1 = new Rocket('32WESSDS', 3);
-var rocket2 = new Rocket('LDSFJA32', 6);
+var rocket1 = new Rocket('32WESSDS', [10, 30, 80]);
+var rocket2 = new Rocket('LDSFJA32', [30, 40, 50, 50, 30, 10]);
 arrRockets.push(rocket1);
 arrRockets.push(rocket2);
 //console.log(arrRockets);
