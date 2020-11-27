@@ -1,8 +1,8 @@
 class Rocket {
     code: string;
     totalThruster: number;
-    thrusters: Array<number>; // array amb la potència establerta
-    countingPower: Array<number>; // array que començarà de 0 i sumarà o restarà
+    thrusters: Array<number> = []; // array amb la potència establerta
+    countingPower: Array<number> = []; // array que començarà de 0 i sumarà o restarà velocitat
 
 
     constructor(code: string, totalThruster: number, thrusters: Array<number>) {
@@ -17,15 +17,24 @@ class Rocket {
         this.countingPower = [];
     }
 
+    set setThrusters(thrusters: Array<number>) {
+        this.thrusters = thrusters;
+    }
+
     // GETTERS
     get getCountingPower() {
         return this.countingPower;
     }
 
+    get getThrusters() {
+        return this.thrusters;
+    }
+
     // METHODS
 
     // posa els mateixos elements de la array del propulsors i inicialitza els valors a 0
-    startCounting() {
+    startCounting(): Array<number> {
+        // const arrayMap = this.thrusters.map(i => i = 0);
 
         for (let i = 0; i < this.thrusters.length; i++) {
             this.countingPower[i] = 0;
@@ -34,18 +43,7 @@ class Rocket {
         return this.countingPower;
     }
 
-    // suma tots els valors de la array Counting
-    currentPower() {
-        let total = 0;
-
-        this.countingPower.forEach(element => {
-            total += element;
-        });
-
-        return total;
-    }
-
-    speedUp() {
+    speedUp(): Array<number> {
 
         for (let i = 0; i < this.thrusters.length; i++) {
             if (this.thrusters[i] > this.countingPower[i]) {
@@ -53,16 +51,28 @@ class Rocket {
             }
         }
 
-        //return counting.textContent = this.countingPower.toString();
+        return this.countingPower;
     }
 
-    slowDown() {
+    slowDown(): Array<number> {
+
         for (let i = 0; i < this.thrusters.length; i++) {
-            if (this.countingPower[i] > 0) {
+            if (this.thrusters[i] >= this.countingPower[i] && this.countingPower[i] > 0) {
                 this.countingPower[i] -= 10;
             }
         }
 
         return this.countingPower;
+    }
+
+    // suma tots els valors de la array countingPower
+    currentPower(): number {
+        let total = 0;
+
+        this.countingPower.forEach(element => {
+            total += element;
+        });
+
+        return total;
     }
 }

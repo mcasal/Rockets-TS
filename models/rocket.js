@@ -1,6 +1,8 @@
 "use strict";
 var Rocket = /** @class */ (function () {
     function Rocket(code, totalThruster, thrusters) {
+        this.thrusters = []; // array amb la potència establerta
+        this.countingPower = []; // array que començarà de 0 i sumarà o restarà velocitat
         this.code = code;
         this.totalThruster = totalThruster;
         this.thrusters = thrusters;
@@ -14,6 +16,13 @@ var Rocket = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
+    Object.defineProperty(Rocket.prototype, "setThrusters", {
+        set: function (thrusters) {
+            this.thrusters = thrusters;
+        },
+        enumerable: false,
+        configurable: true
+    });
     Object.defineProperty(Rocket.prototype, "getCountingPower", {
         // GETTERS
         get: function () {
@@ -22,21 +31,21 @@ var Rocket = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
+    Object.defineProperty(Rocket.prototype, "getThrusters", {
+        get: function () {
+            return this.thrusters;
+        },
+        enumerable: false,
+        configurable: true
+    });
     // METHODS
     // posa els mateixos elements de la array del propulsors i inicialitza els valors a 0
     Rocket.prototype.startCounting = function () {
+        // const arrayMap = this.thrusters.map(i => i = 0);
         for (var i = 0; i < this.thrusters.length; i++) {
             this.countingPower[i] = 0;
         }
         return this.countingPower;
-    };
-    // suma tots els valors de la array Counting
-    Rocket.prototype.currentPower = function () {
-        var total = 0;
-        this.countingPower.forEach(function (element) {
-            total += element;
-        });
-        return total;
     };
     Rocket.prototype.speedUp = function () {
         for (var i = 0; i < this.thrusters.length; i++) {
@@ -44,15 +53,23 @@ var Rocket = /** @class */ (function () {
                 this.countingPower[i] += 10;
             }
         }
-        //return counting.textContent = this.countingPower.toString();
+        return this.countingPower;
     };
     Rocket.prototype.slowDown = function () {
         for (var i = 0; i < this.thrusters.length; i++) {
-            if (this.countingPower[i] > 0) {
+            if (this.thrusters[i] >= this.countingPower[i] && this.countingPower[i] > 0) {
                 this.countingPower[i] -= 10;
             }
         }
         return this.countingPower;
+    };
+    // suma tots els valors de la array countingPower
+    Rocket.prototype.currentPower = function () {
+        var total = 0;
+        this.countingPower.forEach(function (element) {
+            total += element;
+        });
+        return total;
     };
     return Rocket;
 }());
