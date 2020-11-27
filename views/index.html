@@ -14,7 +14,14 @@
 <body>
     <div class="wrap">
         <h3 class="display text-center text-uppercase pt-5"><i class="fas fa-meteor fa-xs"></i> Rockets</h3>
-        <div id="infoRockets" class="d-none">
+        <div id="infoRockets" class="text-center">
+            <button type="button" id="rocket1" class="btn btn-outline-light btn-sm mx-2 speed-up" onclick="crearRocket('32WESSDS', 3, [10, 30, 80])">Create Rocket 1</button>
+            <button type="button" id="rocket2" class="btn btn-outline-light btn-sm mx-2 slow-down" onclick="crearRocket('LDSFJA32', 6, [30, 40, 50, 50, 30, 10])">Create Rocket 2</button>
+            <button type="button" id="infoRocket1" class="btn btn-outline-light btn-sm mx-2 slow-down" onclick="showInfo(0)">Show Info Rocket 1</button>
+            <button type="button" id="infoRocket2" class="btn btn-outline-light btn-sm mx-2 slow-down" onclick="showInfo(1)">Show Info Rocket 2</button>
+            <button type="button" id="infoAllRockets" class="btn btn-outline-light btn-sm mx-2 slow-down" onclick="showAll()">Show All Rockets Info</button>
+            <div id="printRocket"></div>
+            <div id="printAllRockets"></div>
         </div>
     </div>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
