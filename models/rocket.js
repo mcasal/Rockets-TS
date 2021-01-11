@@ -23,6 +23,13 @@ var Rocket = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
+    Object.defineProperty(Rocket.prototype, "setTotalThrusters", {
+        set: function (updateThruster) {
+            this.totalThruster = updateThruster;
+        },
+        enumerable: false,
+        configurable: true
+    });
     Object.defineProperty(Rocket.prototype, "getCountingPower", {
         // GETTERS
         get: function () {

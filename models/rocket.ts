@@ -21,6 +21,10 @@ class Rocket {
         this.thrusters = thrusters;
     }
 
+    set setTotalThrusters(updateThruster: number) {
+        this.totalThruster = updateThruster;
+    }
+
     // GETTERS
     get getCountingPower() {
         return this.countingPower;
